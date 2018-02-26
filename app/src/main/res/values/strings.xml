@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Movies</string>
+    <string name="api_key" translatable="false">your api key goes here</string>
+    <string name="imageview_content_description">POSTER</string>
+    <string name="release_date_label">Release Date:</string>
+    <string name="ratings_label">Ratings:</string>
+    <string name="network_not_available">Network not available! Please try again later</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="sort_key" translatable="false">SortList</string>
+
+    <string name="pref_sort_label_top">Top Rated</string>
+    <string name="pref_sort_label_popular">Most Popular</string>
+    <string name="pref_sort_value_top" translatable="false">movie/top_rated</string>
+    <string name="pref_sort_value_popular" translatable="false">movie/popular</string>
+    <string name="pref_sort_title">Arrange Movies By</string>
+    <string name="pref_sort_summary">Select between most popular movies and top rated movies</string>
+    <string name="image_size" translatable="false">w342</string>
+
+</resources>

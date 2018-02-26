@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="listentries">
+        <item>@string/pref_sort_label_popular</item>
+        <item>@string/pref_sort_label_top</item>
+    </string-array>
+    <string-array name="listvalues">
+        <item>@string/pref_sort_value_popular</item>
+        <item>@string/pref_sort_value_top</item>
+    </string-array>
+</resources>
