@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Movies</string>
-    <string name="api_key" translatable="false">api-key</string>
+    <string name="api_key" translatable="false">your api key</string>
     <string name="imageview_content_description">POSTER</string>
     <string name="release_date_label">Release Date:</string>
     <string name="ratings_label">Ratings:</string>
@@ -13,8 +13,16 @@
     <string name="pref_sort_label_popular">Most Popular</string>
     <string name="pref_sort_value_top" translatable="false">movie/top_rated</string>
     <string name="pref_sort_value_popular" translatable="false">movie/popular</string>
+    <string name="pref_sort_label_fav">Favorites</string>
+    <string name="pref_sort_value_fav" translatable="false">favorites</string>
+
     <string name="pref_sort_title">Arrange Movies By</string>
-    <string name="pref_sort_summary">Select between most popular movies and top rated movies</string>
+    <string name="pref_sort_summary">Select between most popular movies, top rated movies and favorites</string>
     <string name="image_size" translatable="false">w342</string>
+    <string name="author_label">Author:</string>
+    <string name="add_to_favorites_menu_label">add to favorites</string>
+    <string name="movie_removed_from_fav">Movie removed from Favorites</string>
+    <string name="movie_added_to_fav">Movie added to Favorites</string>
+    <string name="no_fav_message">You did not set any favorites movies</string>
 
 </resources>

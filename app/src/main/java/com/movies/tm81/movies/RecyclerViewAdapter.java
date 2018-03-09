@@ -1,13 +1,13 @@
 package com.movies.tm81.movies;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.movies.tm81.movies.model.Movie;
 import com.movies.tm81.movies.utilities.ImageUrlBuilder;
@@ -17,10 +17,10 @@ import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 
-    private LayoutInflater mInflater;
+    private final LayoutInflater mInflater;
     private ItemClickListener mClickListener;
-    private Context context;
-    private List<Movie> movies;
+    private final Context context;
+    private final List<Movie> movies;
 
 
     // data is passed into the constructor
@@ -31,15 +31,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     // inflates the cell layout from xml when needed
+    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = mInflater.inflate(R.layout.recyclerview_item, parent, false);
         return new ViewHolder(view);
     }
 
     // binds the data to the textview in each cell
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         String posterStringUrl = new ImageUrlBuilder().Build(movies.get(position).getPoster_path(),context);
         Picasso.with(context).load(posterStringUrl).placeholder(R.drawable.movie_poster_place_holder).into(holder.poster);
@@ -55,8 +56,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     // stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView movieName;
-        ImageView poster;
+        final TextView movieName;
+        final ImageView poster;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -67,7 +68,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         @Override
         public void onClick(View view) {
-            if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
+            if (mClickListener != null) mClickListener.onItemClick(getAdapterPosition());
         }
     }
 
@@ -83,6 +84,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     // parent activity will implement this method to respond to click events
     public interface ItemClickListener {
-        void onItemClick(View view, int position);
+        void onItemClick(int position);
     }
 }

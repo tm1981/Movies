@@ -38,6 +38,28 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="UnusedAttribute" />
 
+        <TextView
+            android:id="@+id/no_favorites"
+            style="@style/Widget.AppCompat.ProgressBar"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:indeterminateTint="@color/colorPrimary"
+            android:text="@string/no_fav_message"
+            android:textAlignment="textStart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/rv_movies"
+            app:layout_constraintStart_toStartOf="@+id/rv_movies"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="UnusedAttribute"
+            android:gravity="start"
+            android:layout_gravity="start" />
+
 
     </android.support.constraint.ConstraintLayout>
 </android.support.design.widget.CoordinatorLayout>

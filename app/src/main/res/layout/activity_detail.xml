@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.movies.tm81.movies.DetailActivity"
-    android:layout_height="match_parent"
     android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_height="wrap_content"
+    android:background="@android:color/background_light"
+    tools:context="com.movies.tm81.movies.DetailActivity">
 
     <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@android:color/background_light">
 
         <ImageView
-            android:id="@+id/backgroud_poster"
+            android:id="@+id/background_poster"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:adjustViewBounds="true"
@@ -59,25 +60,23 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
             android:text="@string/release_date_label"
             android:textAppearance="@style/TextAppearance.AppCompat"
-            app:layout_constraintBottom_toTopOf="@+id/textView2"
             app:layout_constraintStart_toEndOf="@+id/poster_single"
+            app:layout_constraintTop_toBottomOf="@+id/background_poster"
             android:layout_marginLeft="16dp" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
             android:text="@string/ratings_label"
             android:textAppearance="@style/TextAppearance.AppCompat"
-            app:layout_constraintBottom_toBottomOf="@+id/poster_single"
-            app:layout_constraintStart_toEndOf="@+id/poster_single"
-            android:layout_marginLeft="16dp" />
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <TextView
             android:id="@+id/data_tv"
@@ -86,6 +85,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginStart="8dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            app:layout_constraintBottom_toBottomOf="@+id/textView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView"
             app:layout_constraintTop_toTopOf="@+id/textView"
@@ -103,6 +103,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/textView2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView2"
+            app:layout_constraintTop_toTopOf="@+id/textView2"
             tools:text="100"
             android:layout_marginRight="16dp"
             android:layout_marginLeft="8dp" />
@@ -111,18 +112,28 @@
             android:id="@+id/movie_plot"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/backgroud_poster"
-            app:layout_constraintHorizontal_bias="0.333"
-            app:layout_constraintStart_toStartOf="@+id/poster_single"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/poster_single"
-            tools:text="some text and more info about the movie" />
+            tools:text="some text and more info about the movie some text and more info about the movie some text and more info about the movie  some text and more info about the movie" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_trailers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/movie_plot" />
 
 
     </android.support.constraint.ConstraintLayout>
+
 </ScrollView>

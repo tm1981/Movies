@@ -1,7 +1,5 @@
 package com.movies.tm81.movies.utilities;
 
-import android.net.Uri;
-
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -15,8 +13,8 @@ import java.util.List;
 
 public class ParseJson {
 
-    private List<Movie> movieList = new ArrayList<>();
-    private int numOfPages;
+    private final List<Movie> movieList = new ArrayList<>();
+    private final int numOfPages;
 
     public  ParseJson(String jsonData) {
         JsonElement jsonElement = new JsonParser().parse(jsonData);

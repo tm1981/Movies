@@ -3,9 +3,12 @@
     <string-array name="listentries">
         <item>@string/pref_sort_label_popular</item>
         <item>@string/pref_sort_label_top</item>
+        <item>@string/pref_sort_label_fav</item>
     </string-array>
     <string-array name="listvalues">
         <item>@string/pref_sort_value_popular</item>
         <item>@string/pref_sort_value_top</item>
+        <item>@string/pref_sort_value_fav</item>
     </string-array>
+
 </resources>
