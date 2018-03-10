@@ -25,6 +25,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -58,6 +59,9 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
     private static final String KEY_PARAMETER = "api_key";
     private static final String MOVIE_PATH = "movie";
     private boolean removedFromFav = false;
+    private ScrollView scrollView;
+    private int displayWidth;
+    private int [] scrollViewPosition;
 
 
 
@@ -69,6 +73,7 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
         Intent intent = getIntent();
 
         singleMovie = (Movie) intent.getSerializableExtra("movie");
+        scrollView = findViewById(R.id.scroll_view);
 
         setTitle(singleMovie.getTitle()); //set action bar title
 
@@ -85,8 +90,6 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
         ratingTV.setText(Float.toString(singleMovie.getVote_average()));
         Picasso.with(getApplicationContext()).load(new ImageUrlBuilder().Build(singleMovie.getPoster_path(),this)).into(poster);
         Picasso.with(getApplicationContext()).load(new ImageUrlBuilder().Build(singleMovie.getPoster_path(),this)).into(background);
-
-
 
 
         recyclerView = findViewById(R.id.rv_trailers);
@@ -223,9 +226,20 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
         recyclerView.setLayoutManager(linearLayoutManager);
         TrailersReviewsAdapter adapter = new TrailersReviewsAdapter(getApplicationContext(), trailers, reviews,itemTitles);
         adapter.setClickListener(this);
+
         recyclerView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
 
 
+        //restore the scrollview position
+        if (scrollViewPosition != null) {
+            scrollView.post(new Runnable() {
+                @Override
+                public void run() {
+                    scrollView.scrollTo(scrollViewPosition[0],scrollViewPosition[1]);
+                }
+            });
+        }
     }
 
     @Override
@@ -387,6 +401,20 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
         }
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putIntArray("SCROLL_POSITION",new int[]{scrollView.getScrollX(),scrollView.getScrollY()});
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        final int [] position = savedInstanceState.getIntArray("SCROLL_POSITION");
+        if (position != null) {
+            scrollViewPosition = position;
+        }
+    }
 
 
 }
